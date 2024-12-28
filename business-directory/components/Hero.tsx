@@ -1,3 +1,4 @@
+import category from '@/data/category';
 import Image from 'next/image'
 import React from 'react'
 
@@ -22,7 +23,7 @@ function Hero() {
             <input
               type="text"
               placeholder="Search for what you need!"
-              className="z-20 bg-white p-3 border-[1px] rounded-full px-5 w-[36%] shadow-sm"
+              className="z-20 bg-white p-3 border-[1px] rounded-full px-5 w-[36%] shadow-sm outline-red-300"
             />
             <button className="bg-red-600 rounded-full p-3 shadow-md z-10 cursor-pointer hover:scale-105 transition-all">
               <svg
@@ -40,6 +41,25 @@ function Hero() {
                 />
               </svg>
             </button>
+          </div>
+
+          <div className="mt-5 flex flex-col justify-center items-center">
+            <h2>Or Browse Our Categories</h2>
+            <div className="grid grid-cols-3 md:grid-cols-5 w-[50%] justify-center gap-5 mt-3">
+              {category.map((item, index) => (
+                <div className="border-[1px] w-[60px] p-4 bg-white rounded-full z-10
+                hover:border-red-600 
+                hover: scale-110
+                cursor-pointer transition all">
+                  <Image
+                    src={item.icon}
+                    alt={item.name}
+                    width={30}
+                    height={30}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
