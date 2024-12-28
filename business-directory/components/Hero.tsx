@@ -47,10 +47,13 @@ function Hero() {
             <h2>Or Browse Our Categories</h2>
             <div className="grid grid-cols-3 md:grid-cols-5 w-[50%] justify-center gap-5 mt-3">
               {category.map((item, index) => (
-                <div className="border-[1px] w-[60px] p-4 bg-white rounded-full z-10
+                <div
+                  key={index}
+                  className="border-[1px] w-[60px] p-4 bg-white rounded-full z-10
                 hover:border-red-600 
                 hover: scale-110
-                cursor-pointer transition all">
+                cursor-pointer transition all"
+                >
                   <Image
                     src={item.icon}
                     alt={item.name}
