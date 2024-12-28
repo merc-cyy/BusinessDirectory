@@ -1,0 +1,1 @@
+This is a business directory app. Uses Google Maps API
