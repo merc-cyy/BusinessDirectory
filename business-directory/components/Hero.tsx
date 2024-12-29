@@ -1,8 +1,11 @@
 import category from '@/data/category';
 import Image from 'next/image'
 import React from 'react'
+import { useState } from "react";
 
-function Hero() {
+function Hero({userInput}:any) {
+
+    const [searchInput, setsearchInput] = useState<string>();
   return (
     <div className="text-center">
       <div className="relative">
@@ -22,10 +25,13 @@ function Hero() {
           <div className="mt-5 z-10 flex gap-2 items-center justify-center">
             <input
               type="text"
+              onChange={(e)=>setsearchInput(e.target.value) }
               placeholder="Search for what you need!"
               className="z-20 bg-white p-3 border-[1px] rounded-full px-5 w-[36%] shadow-sm outline-red-300"
             />
-            <button className="bg-red-600 rounded-full p-3 shadow-md z-10 cursor-pointer hover:scale-105 transition-all">
+            <button 
+            onClick={() => userInput(searchInput)}
+            className="bg-red-600 rounded-full p-3 shadow-md z-10 cursor-pointer hover:scale-105 transition-all">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
